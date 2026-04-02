@@ -8,3 +8,4 @@
 | 4 | Digitální Hodiny | `hodiny.py` | 23.03.2026 |
 | 5 | Hádej Číslo | `Numberguesser.py` | 23.03.2026 |
 | 6 | šachy | `chess.py` | 25.03.2026 |
+| 7 | piškvorky | `piskvorky.py` | 03.04.2026 |
