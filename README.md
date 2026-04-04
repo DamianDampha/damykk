@@ -9,4 +9,5 @@
 | 5 | Hádej Číslo | `Numberguesser.py` | 23.03.2026 |
 | 6 | šachy | `chess.py` | 25.03.2026 |
 | 7 | piškvorky | `piskvorky.py` | 03.04.2026 |
-| 8 | Image_converter | `Image_converter.py` | 04.04.2026 |
+| 8 | Image converter | `Image_converter.py` | 04.04.2026 |
+| 9 | falppy bird | `flappy_bird.py` | 04.04.2026 |
