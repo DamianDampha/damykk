@@ -11,3 +11,4 @@
 | 7 | piškvorky | `piskvorky.py` | 03.04.2026 |
 | 8 | Image converter | `Image_converter.py` | 04.04.2026 |
 | 9 | falppy bird | `flappy_bird.py` | 04.04.2026 |
+| 10 | kalkulacka | `kalkulacka.py` | 09.04.2026 |
