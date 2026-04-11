@@ -12,3 +12,4 @@
 | 8 | Image converter | `Image_converter.py` | 04.04.2026 |
 | 9 | falppy bird | `flappy_bird.py` | 04.04.2026 |
 | 10 | kalkulacka | `kalkulacka.py` | 09.04.2026 |
+| 11 | To-do list | `todolist.py` | 11.04.2026 |
