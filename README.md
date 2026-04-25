@@ -1,4 +1,4 @@
-## Projekty
+f## Projekty
 
 | # | Projekt | Soubor | Datum |
 |---|---------|--------|-------|
@@ -13,3 +13,5 @@
 | 9 | falppy bird | `flappy_bird.py` | 04.04.2026 |
 | 10 | kalkulacka | `kalkulacka.py` | 09.04.2026 |
 | 11 | To-do list | `todolist.py` | 11.04.2026 |
+| 12 | prekladac| `prekladac.py` | 25.04.2026 |
+| 13 | prevodnik_men |`mena.py` | 25.04.2026 |
