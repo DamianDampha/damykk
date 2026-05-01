@@ -17,3 +17,4 @@ f## Projekty
 | 13 | prevodnik_men |`mena.py` | 25.04.2026 |
 | 14 | generátor hesel|`generator_hesel.py` | 26.04.2026 |
 | 15 | Knihovna |`knihovna.py` | 30.04.2026 |
+| 16 | Raketka |`raketka.py` | 02.05.2026 |
