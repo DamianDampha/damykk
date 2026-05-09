@@ -1,0 +1,50 @@
+import sys
+
+def show_help():
+    print("\nSprávce úkolů - Příkazy:")
+    print("add [úkol] - Přidá nový úkol")
+    print("list       - Zobrazí všechny úkoly")
+    print("remove [číslo] - Odstraní úkol podle čísla")
+    print("exit       - Ukončí program")
+
+def main():
+    tasks_file = "tasks.txt"
+    show_help()
+
+    while True:
+        cmd_input = input("\n> ").strip().split(" ", 1)
+        action = cmd_input[0].lower()
+
+        if action == "add" and len(cmd_input) > 1:
+            with open(tasks_file, "a", encoding="utf-8") as f:
+                f.write(cmd_input[1] + "\n")
+            print("Úkol přidán.")
+        
+        elif action == "list":
+            try:
+                with open(tasks_file, "r", encoding="utf-8") as f:
+                    tasks = f.readlines()
+                    for i, task in enumerate(tasks, 1):
+                        print(f"{i}. {task.strip()}")
+            except FileNotFoundError:
+                print("Seznam je prázdný.")
+
+        elif action == "remove" and len(cmd_input) > 1:
+            try:
+                idx = int(cmd_input[1]) - 1
+                with open(tasks_file, "r") as f:
+                    tasks = f.readlines()
+                del tasks[idx]
+                with open(tasks_file, "w") as f:
+                    f.writelines(tasks)
+                print("Úkol smazán.")
+            except (IndexError, ValueError):
+                print("Neplatné číslo úkolu.")
+
+        elif action == "exit":
+            break
+        else:
+            print("Neznámý příkaz.")
+
+if __name__ == "__main__":
+    main()
