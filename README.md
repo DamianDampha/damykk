@@ -20,3 +20,4 @@ f## Projekty
 | 16 | Raketka |`raketka.py` | 02.05.2026 |
 | 17 | Pruzkumnik_souboru |`pruzkumnik.py` | 15.05.2026 |
 | 16 | Timer |`timer.py` | 16.05.2026 |
+| 17 | pameti_hra |`pameti_hra.py` | 16.05.2026 |
