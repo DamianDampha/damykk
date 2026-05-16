@@ -18,3 +18,5 @@ f## Projekty
 | 14 | generátor hesel|`generator_hesel.py` | 26.04.2026 |
 | 15 | Knihovna |`knihovna.py` | 30.04.2026 |
 | 16 | Raketka |`raketka.py` | 02.05.2026 |
+| 17 | Pruzkumnik_souboru |`pruzkumnik.py` | 15.05.2026 |
+| 16 | Timer |`timer.py` | 16.05.2026 |
