@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - Gambia Weather Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="weather-content" style="max-width: 600px; margin: 0 auto;">
+        <h1>📬 Contact Us</h1>
+        
+        <p>Have questions about our weather data? Want to report an issue or suggest improvements? We'd love to hear from you!</p>
+
+        <form style="margin: 2rem 0;">
+            <div style="margin-bottom: 1.5rem;">
+                <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required 
+                       style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required 
+                       style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Message subject" required 
+                       style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Message</label>
+                <textarea id="message" name="message" placeholder="Your message..." rows="6" required 
+                          style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; font-family: inherit;"></textarea>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%; padding: 1rem;">Send Message</button>
+        </form>
+
+        <hr style="margin: 2rem 0; border: none; border-top: 1px solid #ddd;">
+
+        <h2>Other Ways to Connect</h2>
+        <ul style="list-style: none; line-height: 2;">
+            <li>📧 Email: info@gambiaweather.com</li>
+            <li>📱 Phone: +220 123 456 7890</li>
+            <li>🌐 Website: www.gambiaweather.com</li>
+            <li>📍 Location: Banjul, The Gambia</li>
+        </ul>
+
+        <h2 style="margin-top: 2rem;">Follow Us</h2>
+        <p>Stay updated with our latest weather information and alerts:</p>
+        <ul style="list-style: none;">
+            <li>🐦 Twitter: @GambiaWeather</li>
+            <li>📘 Facebook: /GambiaWeatherTracker</li>
+            <li>📱 Instagram: @gambiaweathertracker</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

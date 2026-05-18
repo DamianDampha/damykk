@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}About - Gambia Weather Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="weather-content" style="max-width: 800px; margin: 0 auto;">
+        <h1>About Gambia Weather Tracker</h1>
+        
+        <h2 style="margin-top: 2rem; color: #667eea;">Our Mission</h2>
+        <p>Gambia Weather Tracker is dedicated to providing accurate, real-time weather information for The Gambia, a beautiful West African country. We aim to help residents, travelers, and weather enthusiasts stay informed about current conditions and forecasts.</p>
+
+        <h2 style="margin-top: 2rem; color: #667eea;">About The Gambia</h2>
+        <p>The Gambia is a small West African nation located along the Atlantic coast. It's known for its:</p>
+        <ul style="margin-left: 2rem; line-height: 2;">
+            <li>Tropical climate with distinct dry and rainy seasons</li>
+            <li>Beautiful beaches and coastal landscapes</li>
+            <li>River Gambia, one of Africa's most important waterways</li>
+            <li>Diverse wildlife and natural reserves</li>
+            <li>Rich cultural heritage and vibrant communities</li>
+        </ul>
+
+        <h2 style="margin-top: 2rem; color: #667eea;">Weather Information</h2>
+        <p>We track weather data for major cities including:</p>
+        <ul style="margin-left: 2rem; line-height: 2;">
+            <li><strong>Banjul</strong> - The capital city</li>
+            <li><strong>Serekunda</strong> - Largest city and commercial hub</li>
+            <li><strong>Bakau</strong> - Coastal resort area</li>
+            <li><strong>Farafenni</strong> - Northern city</li>
+            <li><strong>Kaur</strong> - Eastern region</li>
+        </ul>
+
+        <h2 style="margin-top: 2rem; color: #667eea;">Climate Seasons</h2>
+        <p><strong>Dry Season (November - May):</strong> Cool temperatures, minimal rainfall, perfect for tourism</p>
+        <p><strong>Rainy Season (June - October):</strong> Warm temperatures, frequent rainfall, lush landscapes</p>
+
+        <h2 style="margin-top: 2rem; color: #667eea;">How We Work</h2>
+        <p>Our platform aggregates weather data and presents it in an easy-to-understand format. We provide:</p>
+        <ul style="margin-left: 2rem; line-height: 2;">
+            <li>Current weather conditions for each city</li>
+            <li>7-day weather forecasts</li>
+            <li>Severe weather alerts</li>
+            <li>Historical weather patterns</li>
+        </ul>
+
+        <a href="{% url 'blog:contact' %}" class="btn" style="margin-top: 2rem;">Get in Touch</a>
+    </div>
+</div>
+{% endblock %}

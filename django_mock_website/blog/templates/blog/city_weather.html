@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ city.name }} Weather - Gambia Weather Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <a href="{% url 'blog:cities_list' %}" class="btn" style="margin-bottom: 1rem;">← Back to Cities</a>
+    
+    <div class="city-info">
+        <h1>{{ city.name }}</h1>
+        <div class="card-meta">📍 {{ city.region }} | Coordinates: {{ city.latitude }}, {{ city.longitude }}</div>
+        {% if city.description %}
+        <p style="margin-top: 1rem;">{{ city.description }}</p>
+        {% endif %}
+    </div>
+
+    <!-- Current Weather -->
+    {% if weather %}
+    <section class="section">
+        <h2>🌡️ Current Weather</h2>
+        <div class="city-info">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div>
+                    <div style="font-size: 0.9rem; color: #666;">Temperature</div>
+                    <div class="temp-display">{{ weather.temperature }}°C</div>
+                    <div class="condition-display">{{ weather.get_condition_display }}</div>
+                </div>
+                <div>
+                    <div style="font-size: 0.9rem; color: #666;">Feels Like</div>
+                    <div class="temp-display">{{ weather.feels_like }}°C</div>
+                    <div class="condition-display">{{ weather.description }}</div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                <div class="weather-stat">
+                    <div class="label">Humidity</div>
+                    <div class="value">{{ weather.humidity }}%</div>
+                </div>
+                <div class="weather-stat">
+                    <div class="label">Wind Speed</div>
+                    <div class="value">{{ weather.wind_speed }}<br><span style="font-size: 0.8rem;">km/h</span></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                Last updated: {{ weather.updated_at|date:"M d, Y H:i" }}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- 7-Day Forecast -->
+    {% if forecast %}
+    <section class="section">
+        <h2>📅 7-Day Forecast</h2>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            {% for day in forecast %}
+            <div class="card">
+                <div class="card-header">
+                    <h3>{{ day.date|date:"M d" }}</h3>
+                    <div class="card-meta">{{ day.date|date:"l" }}</div>
+                </div>
+                <div class="card-body">
+                    <div style="font-size: 1.2rem; margin: 1rem 0;">{{ day.get_condition_display }}</div>
+                    <div style="display: flex; justify-content: space-around; margin: 1rem 0;">
+                        <div>
+                            <div style="font-size: 0.8rem; color: #666;">High</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">{{ day.high_temp }}°</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.8rem; color: #666;">Low</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #667eea;">{{ day.low_temp }}°</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 0.9rem; color: #666;">
+                        🌬️ Wind: {{ day.wind_speed }} km/h<br>
+                        💧 Rain chance: {{ day.rainfall_chance }}%
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Active Alerts -->
+    {% if alerts %}
+    <section class="section">
+        <h2>⚠️ Active Alerts for {{ city.name }}</h2>
+        {% for alert in alerts %}
+        <div class="alert {% if alert.level == 'alert' %}alert-danger{% elif alert.level == 'warning' %}warning{% else %}info{% endif %}">
+            <strong>{{ alert.get_level_display }}: {{ alert.title }}</strong><br>
+            {{ alert.description }}<br>
+            <small>Expires: {{ alert.expires_at|date:"M d, Y H:i" }}</small>
+        </div>
+        {% endfor %}
+    </section>
+    {% else %}
+    <section class="section">
+        <p style="color: white; text-align: center;">No active weather alerts for {{ city.name }}</p>
+    </section>
+    {% endif %}
+</div>
+{% endblock %}

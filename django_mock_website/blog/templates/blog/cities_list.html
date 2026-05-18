@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Cities in Gambia - Weather Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 style="color: white; margin-bottom: 2rem;">📍 Gambian Cities Weather</h1>
+    
+    <div class="card-grid">
+        {% for city in cities %}
+        <div class="card">
+            <div class="card-header">
+                <h3>{{ city.name }}</h3>
+                <div class="card-meta">{{ city.region }}</div>
+            </div>
+            <div class="card-body">
+                <div class="card-meta">📍 {{ city.latitude }}°N, {{ city.longitude }}°W</div>
+                
+                {% if city.current_weather %}
+                    <div style="margin: 1rem 0; padding: 1rem; background: #f0f0f0; border-radius: 5px;">
+                        <div class="temp-display">{{ city.current_weather.temperature }}°C</div>
+                        <div class="condition-display">{{ city.current_weather.get_condition_display }}</div>
+                        <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">
+                            Humidity: {{ city.current_weather.humidity }}% | Wind: {{ city.current_weather.wind_speed }} km/h
+                        </div>
+                    </div>
+                {% else %}
+                    <div style="padding: 1rem; background: #f0f0f0; border-radius: 5px; text-align: center; color: #999;">
+                        No weather data yet
+                    </div>
+                {% endif %}
+                
+                {% if city.description %}
+                <p style="margin: 1rem 0; font-size: 0.9rem;">{{ city.description }}</p>
+                {% endif %}
+                
+                <a href="{% url 'blog:city_weather' city.id %}" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;">View Details</a>
+            </div>
+        </div>
+        {% empty %}
+        <div style="color: white; text-align: center; padding: 2rem;">
+            <p>No cities available yet. Add cities in the admin panel.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

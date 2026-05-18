@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} - MyBlog{% endblock %}
+
+{% block content %}
+<div class="container">
+    <article class="post-content">
+        <h1>{{ post.title }}</h1>
+        
+        <div class="post-meta">
+            <strong>Author:</strong> {{ post.author }} | 
+            <strong>Category:</strong> 
+            <span class="category-tag">{{ post.category.name }}</span> | 
+            <strong>Published:</strong> {{ post.created_at|date:"F d, Y" }}
+            {% if post.updated_at != post.created_at %}
+            | <strong>Updated:</strong> {{ post.updated_at|date:"F d, Y" }}
+            {% endif %}
+        </div>
+
+        <div style="margin-top: 2rem; line-height: 1.8;">
+            {{ post.content|linebreaks }}
+        </div>
+
+        <a href="{% url 'blog:post_list' %}" class="btn">← Back to Posts</a>
+    </article>
+
+    <!-- Related Posts -->
+    {% if related_posts %}
+    <section class="related-posts">
+        <h3>📌 Related Posts</h3>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); margin-top: 1rem;">
+            {% for related in related_posts %}
+            <div class="card">
+                <div class="card-header">
+                    <h4>{{ related.title }}</h4>
+                </div>
+                <div class="card-body">
+                    <p>{{ related.content|truncatewords:20 }}</p>
+                    <a href="{% url 'blog:post_detail' related.id %}" class="btn">Read Post</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</div>
+{% endblock %}

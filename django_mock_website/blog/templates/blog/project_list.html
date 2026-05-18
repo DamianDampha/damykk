@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects - MyBlog{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>🚀 My Projects</h1>
+    <p>Here are some of my recent projects and works. Each showcases different technologies and skills.</p>
+
+    <div class="card-grid">
+        {% for project in projects %}
+        <div class="card">
+            <div class="card-header">
+                <h3>{{ project.title }}</h3>
+            </div>
+            <div class="card-body">
+                <p>{{ project.description }}</p>
+                <div class="card-meta">
+                    <strong>Technologies:</strong> {{ project.technologies }}
+                </div>
+                <div class="card-meta">
+                    <strong>Created:</strong> {{ project.created_at|date:"M d, Y" }}
+                </div>
+                {% if project.link %}
+                <a href="{{ project.link }}" class="btn" target="_blank">🔗 Visit Project</a>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <p>No projects to display yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

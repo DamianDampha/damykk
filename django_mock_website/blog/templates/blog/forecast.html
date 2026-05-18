@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Weather Forecast - Gambia Weather Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 style="color: white; margin-bottom: 2rem;">📅 Extended Weather Forecast</h1>
+    
+    {% if cities %}
+    {% for city in cities %}
+    <section class="section">
+        <h2>{{ city.name }}</h2>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            {% for forecast in forecasts %}
+                {% if forecast.city.id == city.id %}
+                <div class="card">
+                    <div class="card-header">
+                        <h3>{{ forecast.date|date:"M d" }}</h3>
+                        <div class="card-meta">{{ forecast.date|date:"l" }}</div>
+                    </div>
+                    <div class="card-body">
+                        <div style="font-size: 1.2rem; margin: 1rem 0;">{{ forecast.get_condition_display }}</div>
+                        
+                        <div style="display: flex; justify-content: space-around; margin: 1rem 0; padding: 1rem; background: #f0f0f0; border-radius: 5px;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 0.8rem; color: #666;">High</div>
+                                <div style="font-size: 1.8rem; font-weight: bold; color: #667eea;">{{ forecast.high_temp }}°</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 0.8rem; color: #666;">Low</div>
+                                <div style="font-size: 1.8rem; font-weight: bold; color: #667eea;">{{ forecast.low_temp }}°</div>
+                            </div>
+                        </div>
+                        
+                        <div class="weather-grid">
+                            <div class="weather-stat">
+                                <div class="label">Wind</div>
+                                <div class="value">{{ forecast.wind_speed }}<br><span style="font-size: 0.7rem;">km/h</span></div>
+                            </div>
+                            <div class="weather-stat">
+                                <div class="label">Rain Chance</div>
+                                <div class="value">{{ forecast.rainfall_chance }}%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    {% endfor %}
+    {% else %}
+    <div style="color: white; text-align: center; padding: 2rem;">
+        <p>No forecast data available. Add cities and forecasts in the admin panel.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
