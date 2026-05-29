@@ -21,4 +21,4 @@ f## Projekty
 | 17 | Pruzkumnik_souboru |`pruzkumnik.py` | 15.05.2026 |
 | 16 | Timer |`timer.py` | 16.05.2026 |
 | 17 | pameti_hra |`pameti_hra.py` | 16.05.2026 |
-| 18 | prevodnik_jednotek |`prevodnik_jednotek.py` | 29.05.2026 |
+| 18 | vypocty |`vypocty.py` | 29.05.2026 |
