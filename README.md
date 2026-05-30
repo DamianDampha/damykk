@@ -22,3 +22,4 @@ f## Projekty
 | 16 | Timer |`timer.py` | 16.05.2026 |
 | 17 | pameti_hra |`pameti_hra.py` | 16.05.2026 |
 | 18 | vypocty |`vypocty.py` | 29.05.2026 |
+| 19 | seznam ukolu |`seznam.py` | 30.05.2026 |
