@@ -25,3 +25,4 @@ f## Projekty
 | 19 | seznam ukolu |`seznam.py` | 30.05.2026 |
 | 20 | Test AI |`Ai.py` | 1.6.2026 |
 | 19 | krypto peněženka |`penezenka.py` | 5.6.2026 |
+| 20 | AI assisten JARVIS |`main.py` | 13.6.2026 |
